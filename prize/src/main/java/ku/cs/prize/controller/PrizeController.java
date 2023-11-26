@@ -18,7 +18,8 @@ public class PrizeController {
 
     @GetMapping
     public String getAllPrize(Model model) {
-        return "menu-all";
+        model.addAttribute("prizes",prizeService.getAllPrizes());
+        return "prize-all";
     }
 
     @GetMapping("/{id}")
@@ -28,15 +29,34 @@ public class PrizeController {
         return "prize-view";
     }
 
-    @GetMapping("add")
+    @GetMapping("/add")
     public String getPrizeForm(Model model) {
-        return  "prize-add";
+        return "prize-add";
     }
 
     @PostMapping("/add")
     public String createPrize(@ModelAttribute PrizeRequest prize, Model model) {
         prizeService.createNewPrize(prize);
         model.addAttribute("prizes", prizeService.getAllPrizes());
+        return "redirect:/prizes";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String getPrizeEditForm(@PathVariable UUID id,Model model) {
+        Prize prize = prizeService.getOneById(id);
+        model.addAttribute("prizes", prize);
+        return "prize-edit";
+    }
+
+    @PostMapping("/edit")
+    public String update(@ModelAttribute PrizeRequest prizes,Model model) {
+        prizeService.update(prizes);
+        return "redirect:/prizes";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deletePrize(@PathVariable UUID id){
+        prizeService.delete(id);
         return "redirect:/prizes";
     }
 }

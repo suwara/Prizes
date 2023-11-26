@@ -1,9 +1,6 @@
 package ku.cs.prize.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -20,6 +17,10 @@ public class Member {
     private String password;
     private String role;
 
-    @OneToMany(mappedBy = "username")
+    @OneToMany(mappedBy = "member")
     List<Prize> prizes;
+
+    @OneToMany(mappedBy = "member")
+    List<Education> educations;
+
 }

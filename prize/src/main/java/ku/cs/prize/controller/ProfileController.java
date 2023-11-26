@@ -1,27 +1,60 @@
 package ku.cs.prize.controller;
 
+import ku.cs.prize.entity.Profile;
+import ku.cs.prize.model.ProfileRequest;
+import ku.cs.prize.service.EducationService;
 import ku.cs.prize.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/profiles")
 public class ProfileController {
+
     @Autowired
     private ProfileService profileService;
 
-    @GetMapping("/{id}")
-    public String getProfile(@PathVariable UUID id, Model model) {
-        model.addAttribute("profile", profileService.getOneById(id));
-        return "profile";
+    @Autowired
+    private EducationService educationService;
+
+    @GetMapping
+    public String getProfile(Model model) {
+        if(profileService.getProfile().getId() == null){
+            model.addAttribute("profiles", new Profile());
+            model.addAttribute("educations", educationService.getAllEducation());
+        } else {
+            model.addAttribute("profiles", profileService.getProfile());
+            model.addAttribute("educations", educationService.getAllEducation());
+            profileService.calculateBirthDay(profileService.getProfile());
+        }
+        return "profile-view";
+    }
+    @GetMapping("/add")
+    public String getAddProfile(Model model){
+        return "profile-add";
     }
 
+    @PostMapping("/add")
+    public String createProfile(@ModelAttribute ProfileRequest profile, Model model) {
+        profileService.createProfile(profile);
+        model.addAttribute("profiles", profileService.getProfile());
+        return "redirect:/profiles";
+    }
+    @GetMapping("/edit")
+    public String editProfilePage(Model model){
+        Profile profile = profileService.getProfile();
+        model.addAttribute("profiles", profile);
+        return "profile-edit";
+    }
 
+    @PostMapping("/edit")
+    public String update(@ModelAttribute ProfileRequest profile, Model model) {
+        profileService.update(profile);
+        return "redirect:/profiles";
+    }
 }

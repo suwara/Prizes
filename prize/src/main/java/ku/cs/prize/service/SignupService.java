@@ -20,10 +20,8 @@ public class SignupService {
 
     public void createUser (Member user) {
         Member record = new Member();
-        record.setRole(user.getUsername());
         record.setUsername(user.getUsername());
         record.setRole("ROLE_USER");
-
 
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         record.setPassword(hashedPassword);
