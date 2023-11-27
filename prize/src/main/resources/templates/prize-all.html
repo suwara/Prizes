@@ -10,8 +10,8 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<div class="container w-50 p-3">
-    <div class="col-3">
+<div class="container w-75 p-5 my-5">
+    <div class="row">
         <h1 class="display-6">รายการรางวัลของฉัน</h1>
         <a class="link-offset-3-hover link-underline-opacity-0" th:href="@{/prizes/add}">เพิ่มรายการ</a>
     </div>
@@ -27,7 +27,7 @@
             <th>หน่วยงานที่จัด</th>
             <th>ชื่อผู้มอบรางวัล</th>
             <th>รายละเอียด</th>
-            <th>ดู</th>
+            <th sec:authorize="isAuthenticated() and hasRole('User')">ดู</th>
             <th>ลบ</th>
         </tr>
         </thead>

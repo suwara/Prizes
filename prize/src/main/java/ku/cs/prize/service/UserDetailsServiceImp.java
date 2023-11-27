@@ -1,8 +1,12 @@
 package ku.cs.prize.service;
 
+import jakarta.transaction.Transactional;
 import ku.cs.prize.entity.Member;
 import ku.cs.prize.model.MemberRequest;
+import ku.cs.prize.repository.EducationRepository;
 import ku.cs.prize.repository.MemberRepository;
+import ku.cs.prize.repository.PrizeRepository;
+import ku.cs.prize.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +23,15 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Autowired
     private MemberRepository userRepository;
+
+    @Autowired
+    private PrizeRepository prizeRepository;
+
+    @Autowired
+    private EducationRepository educationRepository;
+
+    @Autowired
+    private ProfileRepository profileRepository;
 
     private Member currentMember;
 
@@ -58,8 +71,11 @@ public class UserDetailsServiceImp implements UserDetailsService {
         userRepository.save(record);
         return record;
     }
-
+    @Transactional
     public void delete(UUID id) {
+        educationRepository.deleteByMember_id(id);
+        prizeRepository.deleteByMember_Id(id);
+        profileRepository.deleteByMember_Id(id);
         userRepository.deleteById(id);
     }
 

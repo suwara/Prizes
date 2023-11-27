@@ -32,6 +32,15 @@ public class PrizeService {
 
     public List<Prize> getAllPrizes() {return prizeRepository.findAll();}
 
+    public List<Prize> getAllById() {
+        UUID id = userDetailsServiceImp.getMember().getId();
+        return prizeRepository.findByMember_Id(id);
+    }
+
+    public List<Prize> getPrizeByMemberId(UUID id) {
+        return prizeRepository.findByMember_Id(id);
+    }
+
     public Prize getOneById(UUID id){return prizeRepository.findById(id).get();}
 
     public void createNewPrize(PrizeRequest prize){

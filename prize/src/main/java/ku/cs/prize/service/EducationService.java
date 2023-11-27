@@ -2,6 +2,7 @@ package ku.cs.prize.service;
 
 import ku.cs.prize.entity.Education;
 import ku.cs.prize.entity.Member;
+import ku.cs.prize.entity.Prize;
 import ku.cs.prize.model.EducationRequest;
 import ku.cs.prize.repository.EducationRepository;
 import ku.cs.prize.repository.MemberRepository;
@@ -28,6 +29,11 @@ public class EducationService {
     private UserDetailsServiceImp userDetailsServiceImp;
 
     public List<Education> getAllEducation() { return educationRepository.findAll();}
+
+    public List<Education> getAllById() {
+        UUID id = userDetailsServiceImp.getMember().getId();
+        return educationRepository.findByMember_Id(id);
+    }
 
     public Education getOneById(UUID uuid){
         return educationRepository.findById(uuid).get();

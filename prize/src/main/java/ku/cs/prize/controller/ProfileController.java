@@ -24,15 +24,15 @@ public class ProfileController {
 
     @GetMapping
     public String getProfile(Model model) {
-        if(profileService.getProfile().getId() == null){
-            model.addAttribute("profiles", new Profile());
-            model.addAttribute("educations", educationService.getAllEducation());
+        if (profileService.getProfile() == null){
+            return "redirect:/profiles/add";
         } else {
             model.addAttribute("profiles", profileService.getProfile());
-            model.addAttribute("educations", educationService.getAllEducation());
+            model.addAttribute("educations", educationService.getAllById());
             profileService.calculateBirthDay(profileService.getProfile());
+            return "profile-view";
         }
-        return "profile-view";
+
     }
     @GetMapping("/add")
     public String getAddProfile(Model model){

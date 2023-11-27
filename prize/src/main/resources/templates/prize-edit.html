@@ -10,7 +10,7 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<div class="container w-50 p-3">
+<div class="container w-50 p-5 my-5">
     <h1 class="display-6">แก้ไขรายการรางวัลของคุณ</h1>
 
     <form th:action="@{/prizes/edit}" th:object="${prizes}" method="post">
@@ -56,7 +56,8 @@
             <textarea th:text="${prizes.description}" id="inputDescription" type="text" rows="4" class="form-control"
                       name="description"></textarea>
         </div>
-        <button id="submit-button" type="submit" class="btn btn-primary">Confirm</button>
+        <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>
+        <a id="back-button" class="btn btn-secondary" th:href="@{/prizes/{id} (id=${prizes.id})}">ย้อนกลับ</a>
     </form>
 </div>
 </body>

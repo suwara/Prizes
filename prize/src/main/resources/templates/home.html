@@ -6,17 +6,24 @@
     <title>Prizes Web Application</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
-<div class="container">
+<div class="text-center">
 
     <h1 class="display-6">Welcome to Web Application for collect your prizes</h1>
 
     <div sec:authorize="isAuthenticated()">
         <p><span th:text="${greeting}"></span> คุณ <b><span sec:authentication="name"></span></b></p>
-        <a class="link-offset-3-hover link-underline-opacity-0" th:href="@{/profiles/add}">เพิ่มเติมโปรไฟล์</a>
-        <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
     </div>
     <div sec:authorize="isAnonymous()">
         <a class="btn btn-primary" th:href="@{/login}">เข้าสู่ระบบ</a>

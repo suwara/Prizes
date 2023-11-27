@@ -10,7 +10,7 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<div class="container w-50 p-3">
+<div class="container w-50 p-5 my-5">
     <h1 class="display-5">แก้ไขการศึกษาของฉัน</h1>
     <form th:action="@{/edu/edit}" th:object="${education}" method="post">
         <div class="form-group">
@@ -41,6 +41,7 @@
                        name="yearsEnd">
             </div>
             <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>
+            <a id="back-button" class="btn btn-secondary" th:href="@{/profiles}">ย้อนกลับ</a>
         </div>
     </form>
 

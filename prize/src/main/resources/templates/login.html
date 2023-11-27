@@ -8,10 +8,15 @@
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
-<div class="container w-50 p-3">
+<div class="container w-50 p-5 my-5">
     <h1 class="display-5">Login</h1>
 
+
     <form th:action="@{/login}" method="POST">
+        <div id="success-msg" class="alert alert-success"
+             th:if="${signupSuccess}">
+            <span th:text="${signupSuccess}"></span>
+        </div>
         <div id="error-msg" th:if="${param.error}" class="alert alert-danger">
             Invalid username or password
         </div>

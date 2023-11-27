@@ -10,7 +10,7 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<div class="container w-50 p-3">
+<div class="container w-50 p-5 my-5">
     <h1 class="display-5">แก้ไขข้อมูลสมาชิก</h1>
 
     <form th:action="@{/admin/members/edit}" th:object="${member}" method="post">
@@ -31,6 +31,7 @@
                 </select>
             </div>
             <button id="submit-button" type="submit" class="btn btn-primary">Confirm</button>
+            <a id="back-button" class="btn btn-secondary" th:href="@{/admin/members}">Back</a>
         </div>
     </form>
 </div>

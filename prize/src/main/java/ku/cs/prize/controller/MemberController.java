@@ -37,7 +37,7 @@ public class MemberController {
     }
 
     @PostMapping("/delete/{id}")
-    public String delete(@PathVariable UUID id) {
+    public String deleteMember(@PathVariable UUID id) {
         memberService.delete(id);
         return "redirect:/admin/members";
     }

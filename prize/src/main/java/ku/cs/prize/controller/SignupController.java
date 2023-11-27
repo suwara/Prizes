@@ -22,10 +22,12 @@ public class SignupController {
     public String signupUser (@ModelAttribute Member user, Model model) {
         if (signupService.isUsernameAvailable(user.getUsername())) {
             signupService.createUser(user);
-            model.addAttribute("signupSuccess", true);
+            model.addAttribute("signupSuccess", "Success for Signup! Please Login");
+            return "login";
         }else {
             model.addAttribute("signupError", "Username not available");
+            return "signup";
         }
-        return "signup";
+
     }
  }

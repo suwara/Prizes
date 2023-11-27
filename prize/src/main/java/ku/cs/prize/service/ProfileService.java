@@ -2,6 +2,7 @@ package ku.cs.prize.service;
 
 import ku.cs.prize.entity.Member;
 import ku.cs.prize.entity.Profile;
+import ku.cs.prize.model.MemberRequest;
 import ku.cs.prize.model.ProfileRequest;
 import ku.cs.prize.repository.MemberRepository;
 import ku.cs.prize.repository.ProfileRepository;
@@ -64,6 +65,7 @@ public class ProfileService {
     }
 
     public Profile getProfile() {
+
         UUID id = userDetailsServiceImp.getMember().getId();
         return profileRepository.findByMember_Id(id);
     }

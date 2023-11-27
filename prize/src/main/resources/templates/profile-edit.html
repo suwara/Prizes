@@ -10,7 +10,7 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<div class="container w-50 p-3">
+<div class="container w-50 p-5 my-5">
     <h1 class="display-6">My Profile [EDITING]</h1>
 
     <form th:action="@{/profiles/edit}" th:object="${profiles}" method="post">
@@ -43,7 +43,8 @@
             <input disabled th:value="(${profiles.age})"
                    name="age" id="inputAge" type="text" class="form-control">
         </div>
-        <button id="submit-button" type="submit" class="btn btn-primary">Confirm</button>
+        <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>
+        <a id="back-button" class="btn btn-secondary " th:href="@{/profiles}">ย้อนกลับ</a>
     </form>
 </div>
 </body>
