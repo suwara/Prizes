@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Prizes Web Application</title>
+    <title>Add Education Page</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
@@ -16,7 +16,7 @@
         <div class="form-group">
             <div class="mb-3">
                 <label for="inputNameOfAcademy">ชื่อสถาบันการศึกษา</label>
-                <input id="inputNameOfAcademy" type="text" class="form-control" placeholder="กรอกชื่อสถาบันการศึกษา"
+                <input required id="inputNameOfAcademy" type="text" class="form-control" placeholder="กรอกชื่อสถาบันการศึกษา"
                        name="nameOfAcademy">
             </div>
             <div class="mb-3">
@@ -29,12 +29,12 @@
             </div>
             <div class="mb-3">
                 <label for="inputYearStart">ปีแรกเข้า</label>
-                <input id="inputYearStart" type="text" class="form-control" placeholder="เช่น ปี ค.ศ.1950"
+                <input required id="inputYearStart" type="text" class="form-control" placeholder="เช่น ปี ค.ศ.1950"
                        name="yearsStart">
             </div>
             <div class="mb-3">
                 <label for="inputYearEnd">ปีที่จบการศึกษา</label>
-                <input id="inputYearEnd" type="text" class="form-control" placeholder="เช่น ปี ค.ศ.1960"
+                <input required id="inputYearEnd" type="text" class="form-control" placeholder="เช่น ปี ค.ศ.1960"
                        name="yearsEnd">
             </div>
             <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>

@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Prizes Web Application</title>
+    <title>Add Profile Page</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 
@@ -18,19 +18,19 @@
         <div class="form-group mb-3">
             <div>
                 <label for="inputFirstName">ชื่อ</label>
-                <input id="inputFirstName" type="text" class="form-control" name="firstName" placeholder="กรอกชื่อจริง">
+                <input required id="inputFirstName" type="text" class="form-control" name="firstName" placeholder="กรอกชื่อจริง">
             </div>
             <div>
                 <label for="inputLastName">นามสกุล</label>
-                <input id="inputLastName" type="text" class="form-control" name="lastName" placeholder="กรอกนามสกุล">
+                <input required id="inputLastName" type="text" class="form-control" name="lastName" placeholder="กรอกนามสกุล">
             </div>
             <div>
                 <label for="inputEmail">e-mail</label>
-                <input id="inputEmail" type="email" class="form-control" name="email" placeholder="กรอก email  เช่น example@xxx.com">
+                <input required id="inputEmail" type="email" class="form-control" name="email" placeholder="กรอก email  เช่น example@xxx.com">
             </div>
             <div>
                 <label for="inputBirthDay">วันเกิด</label>
-                <input id="inputBirthDay" type="date" class="form-control" name="birthDay" placeholder="กรอกวันเกิด">
+                <input required id="inputBirthDay" type="date" class="form-control" name="birthDay" placeholder="กรอกวันเกิด">
             </div>
             <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>
         </div>
