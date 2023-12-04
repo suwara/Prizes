@@ -26,8 +26,8 @@
         <p><span th:text="${greeting}"></span> คุณ <b><span sec:authentication="name"></span></b></p>
     </div>
     <div sec:authorize="isAnonymous()">
-        <a class="btn btn-primary" th:href="@{/login}">เข้าสู่ระบบ</a>
-        <a class="btn btn-light" th:href="@{/signup}">ลงทะเบียน</a>
+        <a class="btn btn-primary" id="login-link" th:href="@{/login}">เข้าสู่ระบบ</a>
+        <a class="btn btn-light" id="signup-link" th:href="@{/signup}">ลงทะเบียน</a>
     </div>
 
 

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Prize Web Application</title>
+    <title>Signup Page</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
@@ -14,10 +14,6 @@
 
     <form th:action="@{/signup}" method="POST">
 
-<!--        <div id="success-msg" class="alert alert-success"-->
-<!--             th:if="${signupSuccess}">-->
-<!--            Successfully signed up! Please <a th:href="@{/login}">login</a>.-->
-<!--        </div>-->
         <div id="error-msg" class="alert alert-danger"
              th:if="${signupError}">
             <span th:text="${signupError}"></span>

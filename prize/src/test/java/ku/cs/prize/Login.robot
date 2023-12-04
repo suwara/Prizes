@@ -3,12 +3,13 @@ Documentation     Simple example using SeleniumLibrary.
 Library           SeleniumLibrary
 
 *** Variables ***
-${LOGIN URL}      http://localhost:8090/login
+${LOGIN URL}      http://localhost:8090
 ${BROWSER}        Chrome
 
 *** Test Cases ***
 Valid Login
-    Open Browser To Login Page
+    Open Browser To Home Page
+    Open Login Page
     Input Username    test
     Input Password    test
     Submit Credentials
@@ -16,8 +17,12 @@ Valid Login
     [Teardown]    Close Browser
 
 *** Keywords ***
-Open Browser To Login Page
+Open Browser To Home Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
+    Title Should Be    Home Page
+
+Open Login Page
+    Click Link    เข้าสู่ระบบ
     Title Should Be    Login Page
 
 Input Username
