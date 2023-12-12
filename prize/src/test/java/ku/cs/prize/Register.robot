@@ -16,7 +16,7 @@ Try to Signup
     Expected Signup Fail
     
 Try to Signup 2
-    Input Username    test10
+    Input Username    test09
     Input Password    test
     Submit Register
     Success Register

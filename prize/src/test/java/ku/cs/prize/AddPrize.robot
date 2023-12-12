@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Test Login
+Documentation     Add Prizes more
 Library           SeleniumLibrary
 
 *** Variables ***

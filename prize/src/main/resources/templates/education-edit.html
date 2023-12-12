@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="inputNameOfAcademy">ชื่อสถาบันการศึกษา</label>
-                <input type="text" class="form-control" id="inputNameOfAcademy"
+                <input required type="text" class="form-control" id="inputNameOfAcademy"
                        name="nameOfAcademy" th:value="${education.nameOfAcademy}" >
             </div>
             <div class="mb-3">
@@ -32,12 +32,12 @@
             </div>
             <div class="mb-3">
                 <label for="inputYearStart">ปีแรกเข้า</label>
-                <input th:value="${education.yearsStart}" id="inputYearStart" type="text" class="form-control"
+                <input required th:value="${education.yearsStart}" id="inputYearStart" type="text" class="form-control"
                        name="yearsStart">
             </div>
             <div class="mb-3">
                 <label for="inputYearEnd">ปีที่จบการศึกษา</label>
-                <input th:value="${education.yearsEnd}" id="inputYearEnd" type="text" class="form-control"
+                <input required th:value="${education.yearsEnd}" id="inputYearEnd" type="text" class="form-control"
                        name="yearsEnd">
             </div>
             <button id="submit-button" type="submit" class="btn btn-primary">ยืนยัน</button>
