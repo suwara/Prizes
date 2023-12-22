@@ -7,14 +7,26 @@ ${Home URL}      http://localhost:8090
 ${BROWSER}        Chrome
 
 *** Test Cases ***
-Valid Login
+Login
     Open Browser To Home Page
     Open Login Page
-    Input Username    test
+    Input Username    test3
     Input Password    test
     Submit Credentials
     Welcome Page Should Be Open
-    [Teardown]    Close Browser
+
+Add Prizes
+    Open Prize Page
+    Open Add Prize Page
+    Input Day    7/8/2015
+    Input Sources    Mobile Resturant
+    Input Tournaments    แข่งกิน
+    Input Level    ปลอบใจ
+    Select From List By Value    type  ถ้วยรางวัล
+    Submit Credentials
+
+
+#    [Teardown]    Close Browser
 
 *** Keywords ***
 Open Browser To Home Page
@@ -24,6 +36,34 @@ Open Browser To Home Page
 Open Login Page
     Click Link    เข้าสู่ระบบ
     Title Should Be    Login Page
+
+Open Prize Page
+    Click Link    prizes-link
+    Title Should Be    Show All Prizes Page
+
+Open Add Prize Page
+    Click Link    เพิ่มรายการ
+    Title Should Be    Add Prizes Page
+
+Input Day
+    [Arguments]    ${day}
+    Input Text    dayToGet    ${day}
+
+Input Sources
+    [Arguments]    ${sources}
+    Input Text    sources   ${sources}
+
+Input Tournaments
+    [Arguments]    ${tournaments}
+    Input Text    tournaments    ${tournaments}
+
+Input Level
+    [Arguments]    ${level}
+    Input Text    level    ${level}
+
+Input Namegiver
+    [Arguments]    ${nameGiver}
+    Input Text    nameGiver    ${nameGiver}
 
 Input Username
     [Arguments]    ${username}

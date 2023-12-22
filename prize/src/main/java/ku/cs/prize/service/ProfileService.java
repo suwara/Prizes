@@ -2,18 +2,14 @@ package ku.cs.prize.service;
 
 import ku.cs.prize.entity.Member;
 import ku.cs.prize.entity.Profile;
-import ku.cs.prize.model.MemberRequest;
 import ku.cs.prize.model.ProfileRequest;
 import ku.cs.prize.repository.MemberRepository;
 import ku.cs.prize.repository.ProfileRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.UUID;
 
 @Service

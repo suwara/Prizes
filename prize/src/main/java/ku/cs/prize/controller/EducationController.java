@@ -42,6 +42,7 @@ public class EducationController {
 
     @PostMapping("/delete/{id}")
     public String deleteEducation(@PathVariable UUID id){
+        System.out.println("++++++++++" + id + "delete from controller");
         educationService.delete(id);
         return "redirect:/profiles";
     }

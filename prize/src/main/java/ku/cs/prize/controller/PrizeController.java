@@ -1,16 +1,12 @@
 package ku.cs.prize.controller;
 
-import ku.cs.prize.entity.Member;
 import ku.cs.prize.entity.Prize;
 import ku.cs.prize.model.PrizeRequest;
-import ku.cs.prize.repository.MemberRepository;
 import ku.cs.prize.service.PrizeService;
-import ku.cs.prize.service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.UUID;
 
 @Controller

@@ -58,6 +58,7 @@ public class EducationService {
 
 
     public void delete(UUID id){
+        System.out.println("++++++++++" + id + "delete from service");
         educationRepository.deleteById(id);
     }
 }

@@ -1,14 +1,8 @@
 package ku.cs.prize.model;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.UUID;
 
 @Data

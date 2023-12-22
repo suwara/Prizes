@@ -1,6 +1,5 @@
 package ku.cs.prize.repository;
 
-import jakarta.transaction.Transactional;
 import ku.cs.prize.entity.Prize;
 import org.springframework.data.jpa.repository.JpaRepository;
 

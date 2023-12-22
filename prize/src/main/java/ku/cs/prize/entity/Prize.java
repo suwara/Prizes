@@ -3,9 +3,7 @@ package ku.cs.prize.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.UUID;
 
 @Data

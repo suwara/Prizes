@@ -1,12 +1,9 @@
 package ku.cs.prize.model;
 
 import lombok.Data;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.UUID;
 
 @Data
